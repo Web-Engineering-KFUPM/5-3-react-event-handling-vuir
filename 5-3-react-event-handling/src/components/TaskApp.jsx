@@ -5,8 +5,13 @@ export default function TaskApp() {
 
   const [text, setText] = useState("");
 
+  const [tasks, setTasks] = useState([]);
+
   const handleSubmit = () => {
-   
+   const value = text.trim();
+   if (!value) return;  
+    setTasks(prev => [...prev, { id: Date.now(), text }]);
+    setText("");
   };
 
   
